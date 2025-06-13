@@ -1,6 +1,5 @@
 import HelloWorld from "./components/HelloWorld";
-
-import "./App.css";
+import SomeListComponent from "./components/List";
 
 function App() {
   return (
@@ -9,6 +8,7 @@ function App() {
         <h1>Props and State Example</h1>
       </header>
       <HelloWorld initialName="Larry" />
+      <SomeListComponent />
     </div>
   );
 }

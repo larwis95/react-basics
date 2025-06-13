@@ -81,3 +81,9 @@ function SomeComponentWithRef() {
   )
 }
 ```
+
+## Challenge
+
+In `src/components/ImageContainer.tsx` we have a component that should be fetching data to pass down to its children Image components. Complete the useEffect to fetch the images.
+
+In `src/components/Image.tsx` we have a completed Image component, add comments to explain what is happening in the code.
