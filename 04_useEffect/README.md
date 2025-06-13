@@ -82,6 +82,112 @@ function SomeComponentWithRef() {
 }
 ```
 
+Let's see an example now of fetching data with useEffect, and let's store that data in a useRef so we keep the previous data around.
+
+```TSX
+function Person({ id }) {
+  const prevPerson = useRef(null);
+  const [person, setPerson] = useState()
+
+  /* For the sake of this example let's say that we have an api endpoint /person/:id that retrieves a person with the specified id path paramater.
+  the end point returns a json object that looks like:
+    {
+    "firstName": "Larry",
+    "lastName": "Wisniewski",
+    "age": 30
+    }
+  */
+
+// Since we are syncing with an external system, in this case a RESTful API we will have to fetch in a useEffect to use imperative code.
+ useEffect(
+  () => {
+    // Since fetch a Promise, which is asynchronous, we want to use an async function and await it, async/await is just synatic sugar for promises, it makes promises look like synchronous code.
+    const fetchPerson = async () => {
+      try {
+        const res = await fetch(`/api/person/${id}`); // await the response
+
+        const data = await res.json(); // await the json unmarshaling
+
+        setPerson(data); // set our person state with the person object
+
+      }
+      catch(e) {
+        console.error("Error finding person! ", e);
+      }
+    };
+
+      fetchPerson();
+    }
+  }, [id, person]);
+
+  useEffect(
+    () => {
+      prevPerson.current = person;
+    }, [person])
+
+  return (
+    /* We are using conditonal rendering here, the next lesson README goes over it a bit more indepth.
+    For this purpose just know, the first <div> will only render if person is not a falsy value (null, undefined, 0, or false).
+    And the 2nd div will only render is prevPerson.current is not a falsy value.
+    */
+    {person && (
+      <div>
+        <h2>{person.firstName.concat(" ", person.lastName);}<h2>
+        <p>Age: {age}</p>
+      </div>
+    )}
+
+    {prevPerson.current && (
+      <div>
+        <h2>Previous Person</h2>
+        <h2>{prevPerson.current.firstName.concat(" ", prevPerson.current.lastName);}
+        <h2>
+        <p>Age: {prevPerson.current.age}</p>
+      </div>
+
+    )}
+  )
+}
+```
+
+In the previous example, on the first render let's say id 1 gets passed to our component id prop, and that id is a json object:
+
+```JSON
+  {
+    "firstName": "Larry",
+    "lastName": "Wisniewski",
+    "age": "30"
+  }
+```
+
+Then what we would see on the page is:
+
+Larry Wisniewski
+Age: 30
+
+Previous Person:
+Larry Wisniewski
+Age: 30
+
+now let's say we use state to pass an id of 2 to the Person compondent and the id of 2 corresponds with:
+
+```JSON
+  {
+    "firstName": "Jacob",
+    "lastName": "Wisniewski",
+    "age": "27"
+  }
+```
+
+our Person component will trigger a rerender with:
+
+Jacob Wisniewski
+Age: 27
+
+Previous Person:
+Larry Wisniewski
+Age: 30
+
 ## Challenge
 
 In `src/components/ImageContainer.tsx` we have a component that should be fetching data to pass down to its children Image components. Complete the useEffect to fetch the images.
