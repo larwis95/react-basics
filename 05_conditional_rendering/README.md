@@ -63,11 +63,12 @@ function SomeListComponent() {
 
   return (
     <ul>
-      {list.map((item, index) => (<p key={index}>My name is: {item}</p>));
+      {list.map((item, index) => (<li key={index}>My name is: {item}</li>));}
+    </ul>
   )
 };
 ```
 
-Notice the "key" prop here: `{list.map((item, index) => (<p key={index}>My name is: {item}</p>`
+Notice the "key" prop here: `{list.map((item, index) => (<p key={index}>My name is: {item}</p>));}`
 
 The "key" prop is a special prop React adds to every component to let it keep track of it during the render cycle. If the key changes React knows its an entirely new component. When rendering from an array WE always want to include a unique key for each component we are rendering. That could be anything as long as it is unique. Here we are just using the item's index in the array as the key.
