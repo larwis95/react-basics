@@ -1,7 +1,10 @@
 import { useRef, useEffect } from "react";
 
+interface ImageProps {
+  imgUrl: string;
+}
 // Add comments to explain the code
-function Image({ imgUrl }: { imgUrl: string }) {
+function Image({ imgUrl }: ImageProps) {
   // TODO: What does useRef do here?
   const prevUrl = useRef("");
 

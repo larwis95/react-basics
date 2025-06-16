@@ -39,9 +39,13 @@ function ImageContainer() {
   return (
     <>
       <div className="images-container">
-        {!images && <p>Loading Images...</p>}
-        {images && images.map((url, idx) => <Image key={idx} imgUrl={url} />)}
+        {images ? (
+          images.map((image, index) => <Image key={index} imgUrl={image} />)
+        ) : (
+          <p>Loading images...</p>
+        )}
       </div>
+
       <button onClick={handleRefetch} className="refetch-button">
         Refetch Images
       </button>
