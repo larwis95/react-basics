@@ -34,13 +34,13 @@ As a movie enthusiast, I want to search for movies by title, so that I can see t
 
 - AC5: Handle No Results/Errors: If the API call returns no results or an error occurs, the application must display a user-friendly message.
 
-- AC6: Data Persistence: Data fetched from the API must be saved to the browser's localStorage. When the page is refreshed, this data should be reloaded and displayed, preventing the need for a new API call.
+- AC6: Data Persistence: Data fetched from the API must be saved to the browser's localStorage. When the page is refreshed, this data should be reloaded and displayed, preventing the need for a new API call. See: [https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage](MDN Localstorage API docs)
 
 ## Non-Functional & Technical Criteria:
 
 - AC7: Technology Stack: The application must be built using Vite as the build tool and React as the UI library.
 
-- AC8: API Integration: The application must fetch data from a public API of your choosing. You can find a comprehensive list of public APIs here.
+- AC8: API Integration: The application must fetch data from a public API of your choosing. You can find a comprehensive list of public APIs [https://github.com/public-api-lists/public-api-lists](here).
 
 - AC9: useRef Hook Implementation: The project must use the useRef hook at least once. A good use case is to manage focus on a primary input field when the application loads.
 
