@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 function Image({ imgUrl }: { imgUrl: string }) {
   // TODO: What does useRef do here?
   const prevUrl = useRef("");
+  const text = "some text";
 
   // TODO: What does this effect do?
   useEffect(() => {
@@ -28,6 +29,7 @@ function Image({ imgUrl }: { imgUrl: string }) {
         </a>
       )}
       <p>current: {imgUrl}</p>
+      <p>text: {text}</p>
     </div>
   );
 }

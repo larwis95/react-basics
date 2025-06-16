@@ -23,8 +23,9 @@ function ImageContainer() {
 
       const fetchCats = async () => {
         try {
-          const res = await fetch('https://api.thecatapi.com/v1/images/search?limit=6');
+          const res = await fetch('https://api.thecatapi.com/v1/images/search?limit=3');
           const data = await res.json();
+
           console.log(data);
           setImages(data.map((img: any) => img.url));
           // any only in this example because we have the structure of data returned from cat api
@@ -39,7 +40,7 @@ function ImageContainer() {
         fetchCats();
         setRefetch(false); // Reset refetch state after fetching
       }
-    }, [refetch]
+    }, [refetch, images]
   ); // What should be the dependency array here?
 
   // refetch, because we are only wanting new images to render when we click the button

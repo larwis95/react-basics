@@ -70,8 +70,8 @@ body {
   border-radius: 8px;
   background-color: rgba(76, 198, 242, 0.5);
   width: 75svw;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   justify-items: center;
