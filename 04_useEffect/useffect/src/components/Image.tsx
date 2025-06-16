@@ -24,10 +24,10 @@ function Image({ imgUrl }: { imgUrl: string }) {
       {/* TODO: What type of rendering is this? */}
       {prevUrl.current && (
         <a href={prevUrl.current} target="_blank" rel="noopener noreferrer">
-          Previous Image: {prevUrl.current}
+          prev: {prevUrl.current}
         </a>
       )}
-      <p>Current Image: {imgUrl}</p>
+      <p>current: {imgUrl}</p>
     </div>
   );
 }
