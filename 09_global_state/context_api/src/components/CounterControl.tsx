@@ -12,3 +12,5 @@ function CounterControls() {
     </div>
   );
 }
+
+export default CounterControls;
