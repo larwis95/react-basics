@@ -40,7 +40,6 @@ export default function ThemeProvider({
 
   return (
     <ThemeContext.Provider value={(theme, setTheme)}>
-      {" "}
       {/* pass our useState values to the Provider*/}
       {children} {/* render any children the provider has*/}
     </ThemeContext.Provider>
@@ -154,3 +153,42 @@ So what are the caveats then?
 We'll talk about the solution to #3 in the next lesson.
 
 ## Challenge
+
+### Your Task: Share State Between Sibling Components
+
+Your goal is to use the React Context API to allow one component (CounterControls) to update a state that is displayed in its sibling (CounterDisplay).
+
+Here are the steps to complete the challenge. You can find corresponding // TODO: comments in the code.
+
+Step 1: Create the Context
+
+Find the CounterContext variable, which is currently null.
+
+Initialize it using React's createContext() function.
+
+Step 2: Build the CounterProvider Component
+This component will own the shared state.
+
+Create State: Inside CounterProvider, use useState to create a state variable called count. Its initial value should be 0.
+
+Create Function: Create a function called increment. When called, it should update the count state by adding 1 to its previous value.
+
+Provide the Value: The CounterContext.Provider is missing its value prop. Add it, and pass an object that contains both the count state and your increment function.
+
+Step 3: Consume the Context in CounterDisplay
+
+In the CounterDisplay component, use the useContext hook with CounterContext to get the count value from the provider.
+
+Remove the hardcoded count variable.
+
+Step 4: Consume the Context in CounterControls
+
+In the CounterControls component, use useContext to get the increment function.
+
+Remove the placeholder increment function. The onClick handler on the button is already set up to call it.
+
+Step 5: Wrap the Sibling Components with the Provider
+
+In the main App component, wrap the <CounterDisplay /> and <CounterControls /> components with your CounterProvider. This makes the shared context available to both siblings.
+
+Once finished, clicking the button should update the number on the screen. Good luck!
