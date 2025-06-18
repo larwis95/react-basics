@@ -185,3 +185,5 @@ Here are the steps to complete the challenge:
 1. Update `CounterDisplay` to get the state from our Context, which will be state.count now.
 
 Once complete, all three buttons should correctly manipulate the count displayed on the screen. This will demonstrate how useReducer can centralize all your state transitions in one place!
+
+** *BONUS can you make the decrement not go below zero in our reducer function?* **
