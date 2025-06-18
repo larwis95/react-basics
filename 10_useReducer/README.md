@@ -23,7 +23,7 @@ export const UserProfileProvider = ({ children }) => {
 
   const profileContext = {
     profileState: { name, isActive, lastActivity},
-    toggleActibity,
+    toggleActivity,
     updateName
   };
 
