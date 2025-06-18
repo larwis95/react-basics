@@ -158,7 +158,7 @@ function EditProfile() {
         Submit Name
       </button>
       <button onClick={handleToggleActivity}>
-        {isActive ? "Logout": "Login"}
+        {profile.isActive ? "Logout": "Login"}
       </button>
     </div>
   )
